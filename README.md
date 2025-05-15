@@ -7,7 +7,7 @@
 6. Оптимизация (GPU Instancing, Occlusion Culling, Texture Compression...)
 7. Базовая архитектура (State Machine, Services)
 
-A demo project, it is implemented:
+  A demo project, it is implemented:
 1.Custom post-processing effects (Bloom, Vignette, Fog)
 2.Water Shader
 3.Simplified versions of surface and unlit shaders
