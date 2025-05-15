@@ -12,6 +12,8 @@ namespace CodeBase.Infrastructure
         private VisualElement _compassArrow;
         private float _targetRotation;
         private float _currentRotation;
+        
+        public VisualElement ComassArrow => _compassArrow;
 
         private void Start()
         {

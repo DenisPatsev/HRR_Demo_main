@@ -9,6 +9,7 @@ namespace CodeBase.Infrastructure
         public UIActionsService UiActionsService;
         
         private UIStateMachine _uiStateMachine;
+        public UIStateMachine UIStateMachine => _uiStateMachine;
 
         public void Awake()
         {

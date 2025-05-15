@@ -7,31 +7,30 @@ namespace CodeBase.Infrastructure
     {
         private UIActionsService _uiActionsService;
         private UIBootstrapper _uiBootstrapper;
-        
+
         public MainUIState(UIBootstrapper UiBootstrapper)
         {
             _uiBootstrapper = UiBootstrapper;
             _uiActionsService = UiBootstrapper.UiActionsService;
         }
-        
+
         public void Enter()
         {
-            _uiBootstrapper.StartCoroutine(InitializeCompass());
+            if (_uiActionsService.Compass.ComassArrow == null)
+                _uiBootstrapper.StartCoroutine(InitializeCompass());
         }
 
         private IEnumerator InitializeCompass()
         {
-            while(_uiBootstrapper.Hud == null)
+            while (_uiBootstrapper.Hud == null)
                 yield return null;
-            
+
             _uiActionsService.Compass.InitializeCompass(_uiBootstrapper.Hud);
             Debug.Log("Compass initialized");
-
         }
 
         public void Exit()
         {
-            
         }
     }
 }

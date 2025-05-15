@@ -15,7 +15,8 @@ namespace CodeBase.Infrastructure
         {
             _states = new Dictionary<Type, IExitableState>()
             {
-                [typeof(MainUIState)] = new MainUIState(uiBootstrapper)
+                [typeof(MainUIState)] = new MainUIState(uiBootstrapper),
+                [typeof(PauseState)] = new PauseState(uiBootstrapper)
             };
         }
 
