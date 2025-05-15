@@ -4,15 +4,18 @@ using Random = UnityEngine.Random;
 
 public class EnemyMover : MonoBehaviour
 {
+    private const string IsRun = "isRun";
+    
     [SerializeField] private float _zOffset;
     [SerializeField] private float _xOffset;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _minimalDistance;
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _idleCooldown;
+    [SerializeField] private Animator _animator;
 
     private Enemy _enemy;
-    
+
     private Vector3 _newPosition;
     private Quaternion _targetRotation;
     private Coroutine _cooldownCoroutine;
@@ -71,6 +74,11 @@ public class EnemyMover : MonoBehaviour
     {
         _currentState = States.Triggered;
 
+        if (_animator != null)
+        {
+            _animator.SetBool(IsRun, true);
+        }
+
         if (_cooldownCoroutine != null)
             StopCoroutine(_cooldownCoroutine);
 
@@ -126,6 +134,12 @@ public class EnemyMover : MonoBehaviour
     private void SetIdleState()
     {
         _currentState = States.Idle;
+        
+        if (_animator != null)
+        {
+            _animator.SetBool(IsRun, true);
+        }
+        
         GenerateRandomPosition();
         _moveSpeed = _defaultMoveSpeed;
     }
