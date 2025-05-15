@@ -62,7 +62,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _BorderWidth: 0.0312
-    - _BumpScale: 1
+    - _BumpScale: 0
     - _Cutoff: 0.126
     - _DetailNormalMapScale: 1
     - _DissolveSpeed: 1
@@ -77,10 +77,10 @@ Material:
     - _OcclusionIntensity: 0
     - _OcclusionStrength: 0.523
     - _Parallax: 0.02
-    - _Smoothness: 0.478
+    - _Smoothness: 0.38
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Specularity: 0.55
+    - _Specularity: 0.12
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1

@@ -8,7 +8,6 @@ Shader "Custom/WaveShader"
         _Metallic ("Metallic", Range(0,1)) = 0.0
         _WaveA("Wave A (dir, steepness, wavelength)", Vector) = (1, 0, 0.5, 10)
         _WaveB("Wave A (dir, steepness, wavelength)", Vector) = (0, 1, 0.25, 15)
-        _WaveC("Wave A (dir, steepness, wavelength)", Vector) = (1, 1, 0.15, 5)
     }
     SubShader
     {
@@ -63,7 +62,6 @@ Shader "Custom/WaveShader"
             float3 p = gridPoint;
             p += GerstnerWave(_WaveA, gridPoint, tangent, binormal);
             p += GerstnerWave(_WaveB, gridPoint, tangent, binormal);
-            p += GerstnerWave(_WaveC, gridPoint, tangent, binormal);
             float3 normal = normalize(cross(binormal, tangent));
             vertexData.vertex.xyz = p;
             vertexData.normal = normal;

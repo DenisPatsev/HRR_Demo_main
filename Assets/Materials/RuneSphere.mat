@@ -71,6 +71,7 @@ Material:
     - _DstBlend: 0
     - _Emission: 8.85
     - _FresnelExponent: 4
+    - _FresnelIntensity: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.394
     - _GlossyReflections: 1
@@ -82,12 +83,14 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Transparency: 0.26
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FresnelColor: {r: 0.9169811, g: 0, b: 0.64169157, a: 1}
-    - _MaskColor: {r: 9.298026, g: 0.37120673, b: 0, a: 1}
+    - _FresnelColor: {r: 0.47387436, g: 0.13143307, b: 0.3711419, a: 1}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MaskColor: {r: 4.0754066, g: 0, b: 3.2130024, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

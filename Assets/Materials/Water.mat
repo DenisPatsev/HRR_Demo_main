@@ -53,7 +53,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 68e00aa1e07884a47b46e1afaf28d0f1, type: 3}
-        m_Scale: {x: 8, y: 8}
+        m_Scale: {x: 3, y: 3}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -78,28 +78,28 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FlowOffset: 1.04
-    - _FlowStrength: 0.01
+    - _FlowStrength: 0.02
     - _GlossMapScale: 1
-    - _Glossiness: 0.357
+    - _Glossiness: 0.68
     - _GlossyReflections: 1
     - _HeightScale: 0.29
     - _HeightScaleModulated: 0.68
-    - _Metallic: 0.14
+    - _Metallic: 0
     - _Mode: 0
     - _NormalScale: 3.58
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: 0.8
+    - _Speed: 0.28
     - _SrcBlend: 1
-    - _Tiling: 5
+    - _Tiling: 4
     - _UJump: 0.18
     - _UVSec: 0
     - _VJump: 0.25
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.22575293, g: 0.43241134, b: 0.4415095, a: 1}
+    - _Color: {r: 0, g: 0.5098767, b: 0.53507495, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

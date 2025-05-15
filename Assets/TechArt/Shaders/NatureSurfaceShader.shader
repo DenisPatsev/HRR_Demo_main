@@ -12,22 +12,21 @@ Shader "Custom/NatureSurfaceShader"
     {
         Tags
         {
-            "RenderType"="TransparentCutout"
-            "Queue" = "AlphaTest"
+            "RenderType"="Opaque"
             "IgnoreProjector" = "True"
-//            "ForceNoShadowCasting"="True"
         }
         LOD 100
 
-        Cull Back
+        Cull Off
         ZTest LEqual
         ZWrite On
 
         CGPROGRAM
-        #pragma surface surf Lambert alphatest:_Cutoff noforwardadd nometa
+        #pragma surface surf Lambert addshadow nometa
+        #pragma multi_compile_shadowcaster
 
         sampler2D _MainTex, _BumpMap;
-        float _NormalScale;
+        float _NormalScale, _Cutoff;
 
         struct Input
         {
@@ -45,6 +44,7 @@ Shader "Custom/NatureSurfaceShader"
             float3 normal = UnpackNormal(tex2D(_BumpMap, IN.uv_MainTex)).rgb;
             normal.xy *= _NormalScale;
             normal = normalize(normal);
+            clip(c.a - _Cutoff);
             o.Alpha = c.a;
             o.Normal = normal;
             o.Albedo = c.rgb;

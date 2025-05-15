@@ -6,6 +6,7 @@ public class PortalActivator : MonoBehaviour
     [SerializeField] private RunePlace[] _runePlaces;
     [SerializeField] private GameObject _portal;
     [SerializeField] private MeshDissolver _dissolver;
+    [SerializeField] private GameCompleter _gameCompleter;
     [SerializeField] private float _rotationSpeed;
 
     private int _filledPlaces;
@@ -46,6 +47,7 @@ public class PortalActivator : MonoBehaviour
         {
             _dissolver.DissolveObject();
             _collider.enabled = false;
+            _gameCompleter.gameObject.SetActive(true);
         }
     }
 

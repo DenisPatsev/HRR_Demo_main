@@ -2,70 +2,107 @@ Shader "Custom/MaskShader"
 {
     Properties
     {
-        [HDR]_Color ("Color", Color) = (1,1,1,1)
-        [HDR] _MaskColor ("Mask Color", Color) = (1,1,1,1)
-        [HDR] _FresnelColor ("Fresnel Color", Color) = (1,1,1,1)
-        _MainTex ("Albedo (RGB)", 2D) = "white" {}
-        _MaskTex ("Mask tex", 2D) = "white" {}
-        _MaskTransparency("Mask transparency", Range(0, 1)) = 1
-        _Emission("Emission", Range(0, 10)) = 1
-        _Glossiness ("Smoothness", Range(0,1)) = 0.5
-        _Metallic ("Metallic", Range(0,1)) = 0.0
-        _FresnelExponent("Fresnel exponent", Range(0, 4)) = 0
+        _MainTex ("Main Texture", 2D) = "white" {}
+        [HDR] _MainColor("Main color", Color) = (1,1,1,1)
+        _MaskTex ("Mask Texture", 2D) = "white" {}
+        [HDR] _MaskColor("Mask Color", Color) = (1,1,1,1)
+        _Transparency("Transparency", Range(0, 1)) = 1
     }
     SubShader
     {
         Tags
         {
-           "RenderType"="Transparent"
-            "Queue" = "Transparent"
-            "IgnoreProjector" = "True"
+            "RenderType"="Transparent"
+            "Queue" = "AlphaTest"
         }
-        LOD 200
-         Cull Back
-        ZTest LEqual
-        ZWrite On
-
-        CGPROGRAM
-        #pragma surface surf Standard fullforwardshadows alpha:fade
-
-        sampler2D _MainTex;
-        sampler2D _MaskTex;
-
-        struct Input
+        LOD 100
+        Cull Back
+        ZWrite Off
+        Blend SrcAlpha OneMinusSrcAlpha
+        Pass
         {
-            float2 uv_MainTex;
-            float2 uv_MaskTex;
-            float3 worldNormal;
-            float3 viewDir;
-        };
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
 
-        half _Glossiness, _Emission;
-        half _Metallic, _MaskTransparency, _FresnelExponent;
-        fixed4 _Color, _MaskColor, _FresnelColor;
+            #include "UnityCG.cginc"
 
-        UNITY_INSTANCING_BUFFER_START(Props)
-        UNITY_INSTANCING_BUFFER_END(Props)
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                float2 uv : TEXCOORD0;
+            };
 
-        void surf(Input IN, inout SurfaceOutputStandard o)
-        {
-            fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
-            fixed4 mask = tex2D(_MaskTex, IN.uv_MaskTex) * _MaskColor * _Emission;
-            o.Metallic = _Metallic;
-            o.Smoothness = _Glossiness;
+            struct v2f
+            {
+                float2 uv : TEXCOORD0;
+                float4 vertex : SV_POSITION;
+            };
 
-            float fresnel = dot(IN.worldNormal, IN.viewDir);
-            fresnel = saturate(1 - fresnel);
-            fresnel = pow(fresnel, _FresnelExponent);
-            float3 fresnelColor = fresnel * _FresnelColor;
-            
-            mask.a *= _MaskTransparency;
-            c += mask;
-            o.Albedo = c.rgb;
-            o.Emission += fresnelColor;
-            o.Alpha = _MaskTransparency;
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
+            float4 _MainColor;
+
+            v2f vert(appdata v)
+            {
+                v2f o;
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                return o;
+            }
+
+            fixed4 frag(v2f i) : SV_Target
+            {
+                fixed4 col = tex2D(_MainTex, i.uv) * _MainColor;
+                return col;
+            }
+            ENDCG
         }
-        ENDCG
+
+        pass
+        {
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+
+            #include "UnityCG.cginc"
+
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                float2 uv : TEXCOORD0;
+                float3 normal : NORMAL;
+            };
+
+            struct v2f
+            {
+                float2 uv : TEXCOORD0;
+                float4 vertex : SV_POSITION;
+                float3 normal : TEXCOORD1;
+                float3 viewDir : TEXCOORD2;
+            };
+
+            sampler2D _MaskTex;
+            float4 _MainTex_ST;
+            float4 _MaskColor;
+            float _Transparency;
+
+            v2f vert(appdata v)
+            {
+                v2f o;
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                return o;
+            }
+
+            fixed4 frag(v2f i) : SV_Target
+            {
+                fixed4 mask = tex2D(_MaskTex, i.uv) * _MaskColor;
+                mask.a *= _Transparency;
+                return mask;
+            }
+            ENDCG
+        }
     }
-    FallBack "Diffuse"
 }
+

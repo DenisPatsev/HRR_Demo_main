@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 0ade8512c426ddb468155a54c7c0c39c, type: 3}
+        m_Texture: {fileID: 2800000, guid: dc825619f5f1665418d26bbb170f11d9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -86,11 +86,11 @@ Material:
     - _WaveStrength: 0.465
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.07185057, g: 0.20420405, b: 0.60445744, a: 1}
+    - _Color: {r: 1.2480277, g: 1.2480277, b: 1.2480277, a: 1}
     - _Direction: {r: 0.82, g: 0.21, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _WaveA: {r: 0.05, g: 0, b: 0.01, a: 20}
-    - _WaveB: {r: 0, g: 6.13, b: 0.01, a: 3}
-    - _WaveC: {r: 1, g: 1, b: 0.14, a: 0.2}
+    - _WaveA: {r: 0.1, g: 0, b: 0.55, a: 0.89}
+    - _WaveB: {r: -0.25, g: 1, b: 0.01, a: 1.5}
+    - _WaveC: {r: 0.49, g: 1.22, b: 0.04, a: 0.2}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

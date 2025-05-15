@@ -61,11 +61,9 @@ namespace CodeBase.Infrastructure
         public GameObject CreateHud()
         {
             InteractionChecker checker = _player.GetComponentInChildren<InteractionChecker>();
-            NoiseChecker noiseChecker = _player.GetComponent<NoiseChecker>();
 
             var hud = InstantiateRegistered(AssetPath.HudPath, Vector3.zero);
             UIDocument hudDocument = hud.GetComponent<UIDocument>();
-            noiseChecker.InitializeIndicator(hudDocument);
             checker.SetHud(hudDocument);
             return hud;
         }

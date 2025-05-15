@@ -113,7 +113,6 @@ GameObject:
   - component: {fileID: 2174987961733550824}
   - component: {fileID: 7337100450280081263}
   - component: {fileID: 208397882452821027}
-  - component: {fileID: 5702165727717654892}
   - component: {fileID: 323564468410214486}
   m_Layer: 7
   m_Name: Player
@@ -233,21 +232,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5702165727717654892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3021414523775255147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaf5e497798c4869b250bc9c98e35eef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 6202681965856919601}
-  noiseScaleSpeed: 1
-  iconActivationSpeed: 20
 --- !u!114 &323564468410214486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +290,7 @@ GameObject:
   - component: {fileID: 6984057941590182226}
   - component: {fileID: 4635828941939628707}
   - component: {fileID: 8160612987783613739}
+  - component: {fileID: 8895525589714691432}
   m_Layer: 7
   m_Name: Camera
   m_TagString: Untagged
@@ -360,7 +345,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 205
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -399,8 +384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd922d2c4b1e43a44bfcfa35ea720039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloomIntensity: 1.92
-  bloomThreshold: 7.92
+  bloomIntensity: 5.9
+  bloomThreshold: 0.145
   iterations: 3
   newBloomShader: {fileID: 4800000, guid: 8e93b1294fe155942aaf8b99178c6ce6, type: 3}
 --- !u!114 &8160612987783613739
@@ -419,6 +404,21 @@ MonoBehaviour:
   _color: {r: 0, g: 0, b: 0, a: 0}
   vignetteRadius: 1.45
   vignetteSmoothness: 0.818
+--- !u!114 &8895525589714691432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305181309044551579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f62c7e52a7d0c4da9b507ab1385651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fogShader: {fileID: 4800000, guid: b5b99851537b8e34bb303afd39047a63, type: 3}
+  _farColor: {r: 0.02814523, g: 0.20931755, b: 0.2528302, a: 1}
+  _fogEnd: 1.94
 --- !u!1 &7694127092861600539
 GameObject:
   m_ObjectHideFlags: 0

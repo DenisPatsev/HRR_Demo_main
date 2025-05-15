@@ -9,7 +9,7 @@ public class NewBloom : MonoBehaviour
     private const int ApplyBloomPass = 3;
 
     [Range(0, 10f)] public float bloomIntensity;
-    [Range(0, 10f)] public float bloomThreshold;
+    [Range(0, 2f)] public float bloomThreshold;
     [Range(1, 16f)] public int iterations;
     public Shader newBloomShader;
 

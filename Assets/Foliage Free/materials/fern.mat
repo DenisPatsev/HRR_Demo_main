@@ -8,20 +8,19 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: fern
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 11ccadc516b69a34485c6bdb6b0338e3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - _ALPHATEST_ON
   - _EMISSION
   - _NORMALMAP
-  m_InvalidKeywords: []
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2450
-  stringTagMap:
-    RenderType: TransparentCutout
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
@@ -68,7 +67,7 @@ Material:
     - _AO: 3.85
     - _BaseLight: 0.822
     - _BumpScale: 1
-    - _Cutoff: 0.5
+    - _Cutoff: 0.38
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
@@ -76,7 +75,7 @@ Material:
     - _GlossyReflections: 1
     - _Metallic: 0.68
     - _Mode: 1
-    - _NormalScale: 1.18
+    - _NormalScale: 2.46
     - _Occlusion: 2.3
     - _OcclusionStrength: 1
     - _Parallax: 0.02

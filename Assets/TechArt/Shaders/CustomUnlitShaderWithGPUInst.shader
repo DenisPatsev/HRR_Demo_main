@@ -9,7 +9,7 @@ Shader "Custom/Unlit/CustomUnlitShader"
         _BumpMap("Normal Map", 2D) = "bump"{}
         _BumpScale("Normal scale", Float) = 1.0
         [HDR]_EmissionColor("Emission Color", Color) = (1,1,1,1)
-        _EmissionIntensity("EmissionIntensity", Range(0, 10)) = 0
+        _EmissionIntensity("EmissionIntensity", Range(0, 1)) = 0
     }
     SubShader
     {
@@ -18,6 +18,9 @@ Shader "Custom/Unlit/CustomUnlitShader"
             "RenderType"="Opaque"
         }
         LOD 100
+        
+        ZWrite On
+        Blend SrcAlpha OneMinusSrcAlpha
 
         Pass
         {

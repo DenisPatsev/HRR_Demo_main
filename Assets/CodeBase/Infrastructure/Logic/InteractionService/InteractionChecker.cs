@@ -16,10 +16,10 @@ public class InteractionChecker : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (_targetObject != null)
+        if (Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log(_targetObject);
-            if (Input.GetKeyUp(KeyCode.E))
+            if (_targetObject != null)
             {
                 _targetObject.Interact(_player);
                 _targetObject = null;

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PortalFrame
-  m_Shader: {fileID: 4800000, guid: 689fcd95a2527ff409cf386f85e921cd, type: 3}
+  m_Shader: {fileID: 4800000, guid: dbb6f9e8276e5d14d902726efbe91908, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -66,7 +66,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BumpScale: 4.22
+    - _BumpScale: 6.4
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -77,19 +77,19 @@ Material:
     - _Glossiness: 0.284
     - _GlossyReflections: 1
     - _MaskTransparency: 1
-    - _Metallic: 0.123
+    - _Metallic: 0.2
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Smoothness: 0.547
+    - _Smoothness: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Specularity: 1.02
+    - _Specularity: 1.29
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 0.4584905, b: 0.4584905, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _FresnelColor: {r: 0, g: 0, b: 0, a: 1}
     - _MaskColor: {r: 1, g: 0, b: 0, a: 1}

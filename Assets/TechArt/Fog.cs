@@ -4,9 +4,8 @@ using UnityEngine;
 public class Fog : MonoBehaviour
 {
     [SerializeField] private Shader _fogShader;
-    [SerializeField] private Color _fogColor;
-    [Range(0, 1)] public float _fogDensity;
-    [Range(0, 1f)] public float _fogEnd;
+    [SerializeField] private Color _farColor;
+    [Range(0, 5f)] public float _fogEnd;
 
     private Material _material;
     private Camera mainCamera;
@@ -20,9 +19,8 @@ public class Fog : MonoBehaviour
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
-        _material.SetColor("_FogColor", _fogColor);
-        _material.SetFloat("_FogDensity", _fogDensity);
-        _material.SetFloat("_FogEnd", _fogEnd);
+        _material.SetColor("_FarColor", _farColor);
+        _material.SetFloat("_DepthFactor", _fogEnd);
         Graphics.Blit(source, destination, _material, 0);
     }
 
