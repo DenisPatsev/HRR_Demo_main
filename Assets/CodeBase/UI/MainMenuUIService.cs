@@ -52,7 +52,8 @@ public class MainMenuUIService : MonoBehaviour
         _continueGameButton.RegisterCallback<MouseOutEvent>(evt => { SetDefaultColor(_continueGameButton, _continueStartGameButtonColor); }, TrickleDown.TrickleDown);
         _exitGameButton.RegisterCallback<MouseOutEvent>(evt => { SetDefaultColor(_exitGameButton, _exitGameStartButtonColor); }, TrickleDown.TrickleDown);
 
-        _newGameButton.clicked += StartGame;
+        _newGameButton.clicked += StartNewGame;
+        _continueGameButton.clicked += StartGame;
         _exitGameButton.clicked += ExitGame;
     }
 
@@ -67,10 +68,17 @@ public class MainMenuUIService : MonoBehaviour
         _continueGameButton.UnregisterCallback<MouseOutEvent>(evt => { SetDefaultColor(_continueGameButton, _continueStartGameButtonColor); }, TrickleDown.TrickleDown);
         _exitGameButton.UnregisterCallback<MouseOutEvent>(evt => { SetDefaultColor(_exitGameButton, _exitGameStartButtonColor); }, TrickleDown.TrickleDown);
         
-        _newGameButton.clicked -= StartGame;
+        _newGameButton.clicked -= StartNewGame;
+        _continueGameButton.clicked -= StartGame;
         _exitGameButton.clicked -= ExitGame;
     }
 
+    private void StartNewGame()
+    {
+        PlayerPrefs.DeleteAll();
+        StartGame();
+    }
+    
     private void StartGame()
     {
         SceneManager.LoadScene("Initial");
